@@ -6,7 +6,6 @@
 
 <title>Djiline — Modest Fashion</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -20,487 +19,107 @@
 :root{
   --ink:#0d0d0d;
   --paper:#f6f3ee;
-  --soft:#d8d0c4;
-
   --serif:'Cormorant Garamond', serif;
   --sans:'Jost', sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
 }
 
 body{
   font-family:var(--sans);
   background:var(--paper);
   color:var(--ink);
-  overflow-x:hidden;
 }
 
-/* ================= NAVBAR ================= */
+/* NAV */
 
 nav{
   position:fixed;
   top:0;
-  left:0;
   width:100%;
-
   z-index:999;
 
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 
-  padding:18px 5vw;
+  padding:16px 5vw;
 
-  background:rgba(246,243,238,.75);
-  backdrop-filter:blur(14px);
-
-  border-bottom:1px solid rgba(0,0,0,.05);
+  background:rgba(246,243,238,.85);
+  backdrop-filter:blur(12px);
 }
 
 .logo img{
   height:42px;
-  width:auto;
-  object-fit:contain;
 }
 
-.nav-links{
-  display:flex;
-  gap:40px;
-  list-style:none;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#4d4740;
-
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-
-  transition:.3s;
-}
-
-.nav-links a:hover{
-  opacity:.5;
-}
-
-.nav-btn{
-  text-decoration:none;
-
-  background:#111;
-  color:white;
-
-  padding:12px 22px;
-
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-
-  border-radius:100px;
-
-  transition:.3s;
-}
-
-.nav-btn:hover{
-  opacity:.8;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
-  position:relative;
   height:100vh;
-  min-height:760px;
-
-  overflow:hidden;
+  position:relative;
 }
 
-.hero video,
 .hero img{
-  position:absolute;
-  inset:0;
-
   width:100%;
   height:100%;
-
   object-fit:cover;
 }
 
-.hero-overlay{
+.hero::after{
+  content:'';
   position:absolute;
   inset:0;
-
-  background:
-  linear-gradient(
-    to right,
-    rgba(0,0,0,.60),
-    rgba(0,0,0,.15)
-  );
+  background:linear-gradient(to right, rgba(0,0,0,.65), rgba(0,0,0,.15));
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-
-  height:100%;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-
-  padding:0 7vw 8vh;
-
-  max-width:700px;
-}
-
-.hero-tag{
-  color:rgba(255,255,255,.75);
-
-  text-transform:uppercase;
-  letter-spacing:.35em;
-
-  font-size:10px;
-
-  margin-bottom:22px;
+  position:absolute;
+  bottom:10%;
+  left:5vw;
+  color:white;
+  max-width:600px;
 }
 
 .hero h1{
   font-family:var(--serif);
-  font-size:clamp(60px,9vw,140px);
-  line-height:.9;
+  font-size:clamp(50px,8vw,120px);
   font-weight:300;
-
-  color:white;
-
-  margin-bottom:24px;
+  line-height:1;
 }
 
-.hero h1 em{
-  font-style:italic;
-  color:rgba(255,255,255,.72);
-}
-
-.hero p{
-  color:rgba(255,255,255,.8);
-
-  line-height:2;
-  font-size:14px;
-
-  max-width:420px;
-
-  margin-bottom:34px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
-}
-
-.btn-light{
-  background:white;
-  color:black;
-
-  text-decoration:none;
-
-  padding:16px 30px;
-
-  font-size:10px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-
-  border-radius:100px;
-}
-
-.btn-transparent{
-  color:white;
-  text-decoration:none;
-
-  font-size:10px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-/* ================= INTRO ================= */
-
-.intro{
-  padding:120px 7vw;
-  text-align:center;
-}
-
-.intro h2{
-  font-family:var(--serif);
-  font-size:clamp(36px,5vw,70px);
-  font-weight:300;
-  line-height:1.15;
-
-  max-width:900px;
-  margin:auto;
-
-  margin-bottom:30px;
-}
-
-.intro p{
-  max-width:650px;
-  margin:auto;
-
-  color:#6d665f;
-  line-height:2;
-  font-size:15px;
-}
-
-/* ================= COLLECTION ================= */
+/* COLLECTION */
 
 .collection{
-  padding:0 5vw 120px;
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-
-  margin-bottom:50px;
-}
-
-.section-title{
-  font-family:var(--serif);
-  font-size:48px;
-  font-weight:300;
-}
-
-.section-count{
-  font-size:11px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-
-  color:#857c73;
+  padding:100px 5vw;
 }
 
 .products{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
   gap:30px;
 }
 
-.product{
-  text-decoration:none;
-  color:inherit;
-}
-
-.product-media{
-  position:relative;
-
-  aspect-ratio:4/5;
-
-  overflow:hidden;
-  background:#e9e2d8;
-
-  margin-bottom:18px;
-
-  border-radius:2px;
-}
-
-.product-media img,
-.product-media video{
+.card img{
   width:100%;
-  height:100%;
-
+  height:420px;
   object-fit:cover;
-
-  transition:transform .7s ease;
+  border-radius:6px;
 }
 
-.product:hover img,
-.product:hover video{
-  transform:scale(1.04);
-}
-
-.product-info{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.product-name{
-  font-family:var(--serif);
-  font-size:32px;
-  font-weight:300;
-
-  margin-bottom:6px;
-}
-
-.product-desc{
-  font-size:13px;
-  line-height:1.7;
-  color:#6f675f;
-}
-
-.product-price{
-  white-space:nowrap;
-
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-}
-
-/* ================= ABOUT ================= */
-
-.about{
-  background:#0d0d0d;
-  color:white;
-
-  padding:120px 7vw;
-}
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-
-  max-width:1200px;
-  margin:auto;
-}
-
-.about-title{
-  font-family:var(--serif);
-  font-size:clamp(50px,6vw,100px);
-  line-height:.9;
-  font-weight:300;
-}
-
-.about-text{
-  color:rgba(255,255,255,.72);
-
-  line-height:2;
-  font-size:15px;
-
-  max-width:500px;
-}
-
-/* ================= CONTACT ================= */
+/* CONTACT */
 
 .contact{
-  padding:120px 5vw;
+  padding:100px 5vw;
   text-align:center;
 }
 
-.contact h2{
-  font-family:var(--serif);
-  font-size:clamp(50px,6vw,90px);
-  font-weight:300;
-
-  margin-bottom:20px;
-}
-
-.contact p{
-  max-width:600px;
-  margin:auto;
-
-  line-height:2;
-  color:#6f675f;
-
-  margin-bottom:35px;
-}
-
-.contact-btn{
+.contact a{
   display:inline-block;
-
-  text-decoration:none;
-
+  margin-top:20px;
   background:#111;
   color:white;
-
-  padding:18px 34px;
-
-  border-radius:100px;
-
-  font-size:10px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  border-top:1px solid rgba(0,0,0,.08);
-
-  padding:30px 5vw;
-
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.footer-brand{
-  font-family:var(--serif);
-  font-size:16px;
-}
-
-.footer-copy{
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-
-  color:#8d847b;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-  nav{
-    padding:16px 20px;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  .nav-btn{
-    padding:10px 16px;
-    font-size:9px;
-  }
-
-  .hero{
-    min-height:680px;
-  }
-
-  .hero-content{
-    padding:0 24px 60px;
-  }
-
-  .hero h1{
-    font-size:68px;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .about-grid{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-
-  .section-head{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:10px;
-  }
-
+  padding:14px 28px;
+  border-radius:999px;
+  text-decoration:none;
 }
 
 </style>
@@ -508,155 +127,42 @@ footer{
 
 <body>
 
-<!-- NAVBAR -->
-
+<!-- NAV -->
 <nav>
 
-  <a href="#" class="logo">
-    <img src="images/logo.png.jpg" alt="Djiline Logo">
-  </a>
+  <div class="logo">
+    <img src="images/logo.png.jpg" alt="logo">
+  </div>
 
-  <ul class="nav-links">
-    <li><a href="#collection">Collection</a></li>
-    <li><a href="#about">À propos</a></li>
-    <li><a href="#contact">Commander</a></li>
-  </ul>
-
-  <a
-  href="https://wa.me/33768260699"
-  target="_blank"
-  class="nav-btn">
-  WhatsApp
+  <a class="nav-btn" href="https://wa.me/33768260699" target="_blank">
+    WhatsApp
   </a>
 
 </nav>
 
 <!-- HERO -->
-
 <section class="hero">
 
-  <!-- SI TU VEUX VIDEO HERO -->
-  <!-- Remplace images/hero.jpg.jpeg par ta vidéo -->
-
-  <video autoplay muted loop playsinline>
-    <source src="images/hero.jpg.jpeg" type="video/mp4">
-  </video>
-
-  <!-- SI TU PRÉFÈRES IMAGE HERO -->
-  <!--
-  <img src="hero.jpg.jpeg" alt="">
-  -->
-
-  <div class="hero-overlay"></div>
+  <img src="images/hero.jpg.jpeg" alt="hero">
 
   <div class="hero-content">
-
-    <div class="hero-tag">
-      Modest Fashion · France
-    </div>
-
-    <h1>
-      L'élégance
-      <br>
-      <em>réinventée</em>
-    </h1>
-
-    <p>
-      Des silhouettes modestes inspirées du luxe contemporain.
-      Fluidité, minimalisme et élégance intemporelle.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a href="#collection" class="btn-light">
-        Découvrir
-      </a>
-
-      <a href="#about" class="btn-transparent">
-        Notre histoire →
-      </a>
-
-    </div>
-
+    <h1>Djiline</h1>
+    <p>Mode modeste contemporaine — élégance minimaliste.</p>
   </div>
-
-</section>
-
-<!-- INTRO -->
-
-<section class="intro">
-
-  <h2>
-    “La modestie n'efface pas la présence.
-    Elle lui donne du silence.”
-  </h2>
-
-  <p>
-    Djiline propose une vision moderne du vêtement modeste :
-    des pièces sobres, élégantes et intemporelles inspirées
-    des maisons de luxe contemporaines.
-  </p>
 
 </section>
 
 <!-- COLLECTION -->
-
-<section class="collection" id="collection">
-
-  <div class="section-head">
-
-    <h2 class="section-title">
-      Collection
-    </h2>
-
-    <span class="section-count">
-      Nouvelle capsule
-    </span>
-
-  </div>
+<section class="collection">
 
   <div class="products">
 
-    <!-- PRODUIT 1 -->
+    <a class="card" href="https://wa.me/33768260699?text=Commande%20Parka%20Bleu">
 
-    <a
-    href="https://wa.me/33768260699?text=Bonjour%20je%20souhaite%20commander%20le%20modèle%20Parka%20Bleu"
-    target="_blank"
-    class="product">
+      <img src="images/parkableu.jpg.jpeg" alt="Parka Bleu">
 
-      <div class="product-media">
-
-        <!-- VIDEO PRODUIT -->
-        <!-- Tu peux remplacer par video -->
-
-        <video autoplay muted loop playsinline>
-          <source src="images/parkableu.jpg.jpeg" type="video/mp4">
-        </video>
-
-        <!-- OU IMAGE -->
-        <!--
-        <img src="parkableu.jpg.jpeg" alt="">
-        -->
-
-      </div>
-
-      <div class="product-info">
-
-        <div>
-          <h3 class="product-name">
-            Parka Bleu
-          </h3>
-
-          <p class="product-desc">
-            Coupe oversize · silhouette minimaliste · premium
-          </p>
-        </div>
-
-        <span class="product-price">
-          Commander
-        </span>
-
-      </div>
+      <h3>Parka Bleu</h3>
+      <p>Coupe oversize</p>
 
     </a>
 
@@ -664,65 +170,16 @@ footer{
 
 </section>
 
-<!-- ABOUT -->
-
-<section class="about" id="about">
-
-  <div class="about-grid">
-
-    <h2 class="about-title">
-      Portée avec intention
-    </h2>
-
-    <p class="about-text">
-      Djiline est née d'une volonté simple :
-      proposer une mode élégante, minimaliste et intemporelle.
-      Chaque pièce est pensée comme une silhouette entre
-      discrétion, féminité et modernité.
-    </p>
-
-  </div>
-
-</section>
-
 <!-- CONTACT -->
+<section class="contact">
 
-<section class="contact" id="contact">
+  <h2>Commander</h2>
 
-  <h2>
-    Commander
-  </h2>
-
-  <p>
-    Contactez-nous directement sur WhatsApp
-    pour commander votre modèle
-    et découvrir les prochaines collections.
-  </p>
-
-  <a
-  href="https://wa.me/33768260699"
-  target="_blank"
-  class="contact-btn">
-
-  WhatsApp
-
+  <a href="https://wa.me/33768260699" target="_blank">
+    WhatsApp
   </a>
 
 </section>
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="footer-brand">
-    Djiline — Modest Fashion
-  </div>
-
-  <div class="footer-copy">
-    © 2026 · France
-  </div>
-
-</footer>
 
 </body>
 </html>
