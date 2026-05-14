@@ -11,18 +11,16 @@
 
 <style>
 
-*,
-*::before,
-*::after{
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
 :root{
-  --ink:#0c0b0a;
-  --paper:#f7f5f1;
-  --warm:#d7d0c5;
+  --ink:#0d0d0d;
+  --paper:#f6f3ee;
+  --soft:#d8d0c4;
 
   --serif:'Cormorant Garamond', serif;
   --sans:'Jost', sans-serif;
@@ -37,115 +35,107 @@ body{
   background:var(--paper);
   color:var(--ink);
   overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
 }
 
-/* ───────────────── NAV ───────────────── */
+/* ================= NAVBAR ================= */
 
 nav{
   position:fixed;
   top:0;
   left:0;
-  right:0;
+  width:100%;
 
-  z-index:300;
+  z-index:999;
 
   display:flex;
   align-items:center;
   justify-content:space-between;
 
-  height:78px;
-  padding:0 4rem;
+  padding:18px 5vw;
 
-  background:rgba(247,245,241,0.72);
-  backdrop-filter:blur(18px);
+  background:rgba(246,243,238,.75);
+  backdrop-filter:blur(14px);
 
-  border-bottom:1px solid rgba(0,0,0,0.04);
+  border-bottom:1px solid rgba(0,0,0,.05);
 }
 
-.logo{
-  font-family:var(--serif);
-  font-size:24px;
-  letter-spacing:0.32em;
-  text-transform:uppercase;
-  text-decoration:none;
-  color:var(--ink);
+.logo img{
+  height:42px;
+  width:auto;
+  object-fit:contain;
 }
 
-.nav-center{
-  list-style:none;
-
+.nav-links{
   display:flex;
-  gap:3rem;
+  gap:40px;
+  list-style:none;
 }
 
-.nav-center a{
+.nav-links a{
   text-decoration:none;
+  color:#4d4740;
 
   font-size:11px;
-  letter-spacing:0.28em;
+  letter-spacing:.22em;
   text-transform:uppercase;
 
-  color:#5c554d;
-
-  transition:opacity .25s;
+  transition:.3s;
 }
 
-.nav-center a:hover{
+.nav-links a:hover{
   opacity:.5;
 }
 
-.nav-cta{
+.nav-btn{
   text-decoration:none;
 
-  border:1px solid var(--ink);
+  background:#111;
+  color:white;
 
-  color:var(--ink);
-
-  padding:10px 24px;
+  padding:12px 22px;
 
   font-size:10px;
-  letter-spacing:0.25em;
+  letter-spacing:.2em;
   text-transform:uppercase;
 
-  transition:
-  background .25s,
-  color .25s;
+  border-radius:100px;
+
+  transition:.3s;
 }
 
-.nav-cta:hover{
-  background:var(--ink);
-  color:white;
+.nav-btn:hover{
+  opacity:.8;
 }
 
-/* ───────────────── HERO ───────────────── */
+/* ================= HERO ================= */
 
 .hero{
   position:relative;
-  min-height:100vh;
+  height:100vh;
+  min-height:760px;
+
   overflow:hidden;
 }
 
-.hero-visual{
+.hero video,
+.hero img{
   position:absolute;
   inset:0;
-}
 
-.hero-visual img{
   width:100%;
   height:100%;
+
   object-fit:cover;
 }
 
-.hero-visual::after{
-  content:'';
+.hero-overlay{
   position:absolute;
   inset:0;
 
   background:
   linear-gradient(
     to right,
-    rgba(0,0,0,.62),
+    rgba(0,0,0,.60),
     rgba(0,0,0,.15)
   );
 }
@@ -154,101 +144,82 @@ nav{
   position:relative;
   z-index:2;
 
-  min-height:100vh;
+  height:100%;
 
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
 
-  padding:
-  0
-  0
-  8rem
-  7vw;
+  padding:0 7vw 8vh;
 
-  max-width:760px;
+  max-width:700px;
 }
 
 .hero-tag{
-  font-size:10px;
-  letter-spacing:.45em;
+  color:rgba(255,255,255,.75);
+
   text-transform:uppercase;
+  letter-spacing:.35em;
 
-  color:rgba(255,255,255,.7);
+  font-size:10px;
 
-  margin-bottom:2rem;
-
-  animation:fadeUp .8s ease;
+  margin-bottom:22px;
 }
 
-.hero-h1{
+.hero h1{
   font-family:var(--serif);
-
-  font-size:clamp(72px,9vw,140px);
-  line-height:.88;
-
+  font-size:clamp(60px,9vw,140px);
+  line-height:.9;
   font-weight:300;
 
   color:white;
 
-  margin-bottom:2rem;
-
-  animation:fadeUp .9s ease;
+  margin-bottom:24px;
 }
 
-.hero-h1 em{
+.hero h1 em{
   font-style:italic;
   color:rgba(255,255,255,.72);
 }
 
-.hero-body{
-  font-size:14px;
-  line-height:2;
+.hero p{
+  color:rgba(255,255,255,.8);
 
-  color:rgba(255,255,255,.76);
+  line-height:2;
+  font-size:14px;
 
   max-width:420px;
 
-  margin-bottom:3rem;
-
-  animation:fadeUp 1s ease;
+  margin-bottom:34px;
 }
 
-.hero-actions{
+.hero-buttons{
   display:flex;
-  gap:1rem;
-
-  animation:fadeUp 1.1s ease;
+  gap:16px;
+  flex-wrap:wrap;
 }
 
-.btn-ink{
-  text-decoration:none;
-
+.btn-light{
   background:white;
   color:black;
 
-  padding:16px 38px;
-
-  font-size:10px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-
-  transition:
-  transform .25s ease,
-  opacity .25s ease;
-}
-
-.btn-ink:hover{
-  transform:translateY(-2px);
-}
-
-.btn-ghost{
   text-decoration:none;
 
-  color:white;
+  padding:16px 30px;
 
   font-size:10px;
-  letter-spacing:.25em;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+
+  border-radius:100px;
+}
+
+.btn-transparent{
+  color:white;
+  text-decoration:none;
+
+  font-size:10px;
+  letter-spacing:.22em;
   text-transform:uppercase;
 
   display:flex;
@@ -256,47 +227,38 @@ nav{
   gap:8px;
 }
 
-.btn-ghost::after{
-  content:'→';
-}
-
-/* ───────────────── INTRO ───────────────── */
+/* ================= INTRO ================= */
 
 .intro{
-  padding:10vw 5vw;
+  padding:120px 7vw;
   text-align:center;
 }
 
-.intro-quote{
+.intro h2{
   font-family:var(--serif);
-
-  font-size:clamp(34px,4vw,60px);
-
-  line-height:1.2;
-
-  font-style:italic;
+  font-size:clamp(36px,5vw,70px);
   font-weight:300;
+  line-height:1.15;
 
   max-width:900px;
-
-  margin:auto auto 2rem;
-}
-
-.intro-sub{
-  max-width:620px;
-
   margin:auto;
 
-  font-size:14px;
-  line-height:2;
-
-  color:#6f675f;
+  margin-bottom:30px;
 }
 
-/* ───────────────── COLLECTION ───────────────── */
+.intro p{
+  max-width:650px;
+  margin:auto;
+
+  color:#6d665f;
+  line-height:2;
+  font-size:15px;
+}
+
+/* ================= COLLECTION ================= */
 
 .collection{
-  padding:0 5vw 8rem;
+  padding:0 5vw 120px;
 }
 
 .section-head{
@@ -304,12 +266,12 @@ nav{
   justify-content:space-between;
   align-items:flex-end;
 
-  margin-bottom:4rem;
+  margin-bottom:50px;
 }
 
 .section-title{
   font-family:var(--serif);
-  font-size:42px;
+  font-size:48px;
   font-weight:300;
 }
 
@@ -318,234 +280,225 @@ nav{
   letter-spacing:.25em;
   text-transform:uppercase;
 
-  color:#7f776f;
+  color:#857c73;
 }
 
 .products{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:3rem;
+  gap:30px;
 }
 
-.product-card{
+.product{
   text-decoration:none;
   color:inherit;
 }
 
-.product-image{
-  aspect-ratio:4/6;
-  min-height:540px;
+.product-media{
+  position:relative;
+
+  aspect-ratio:4/5;
 
   overflow:hidden;
+  background:#e9e2d8;
 
-  background:#e9e3da;
+  margin-bottom:18px;
 
-  margin-bottom:1.2rem;
+  border-radius:2px;
 }
 
-.product-image img{
+.product-media img,
+.product-media video{
   width:100%;
   height:100%;
+
   object-fit:cover;
 
   transition:transform .7s ease;
 }
 
-.product-card:hover img{
+.product:hover img,
+.product:hover video{
   transform:scale(1.04);
 }
 
 .product-info{
   display:flex;
   justify-content:space-between;
-  align-items:flex-start;
-  gap:1rem;
+  gap:20px;
 }
 
 .product-name{
   font-family:var(--serif);
-  font-size:30px;
+  font-size:32px;
   font-weight:300;
+
   margin-bottom:6px;
 }
 
 .product-desc{
-  font-size:12px;
+  font-size:13px;
   line-height:1.7;
   color:#6f675f;
 }
 
 .product-price{
-  font-size:11px;
+  white-space:nowrap;
+
+  font-size:10px;
   letter-spacing:.2em;
   text-transform:uppercase;
-  white-space:nowrap;
 }
 
-/* ───────────────── ABOUT ───────────────── */
+/* ================= ABOUT ================= */
 
 .about{
-  background:#0c0b0a;
+  background:#0d0d0d;
   color:white;
 
-  padding:10vw 5vw;
+  padding:120px 7vw;
 }
 
 .about-grid{
-  max-width:1200px;
-
-  margin:auto;
-
   display:grid;
   grid-template-columns:1fr 1fr;
+  gap:80px;
 
-  gap:5rem;
+  max-width:1200px;
+  margin:auto;
 }
 
 .about-title{
   font-family:var(--serif);
-
-  font-size:clamp(50px,6vw,90px);
-
-  line-height:.92;
-
+  font-size:clamp(50px,6vw,100px);
+  line-height:.9;
   font-weight:300;
 }
 
 .about-text{
-  font-size:14px;
-  line-height:2;
-
   color:rgba(255,255,255,.72);
 
-  max-width:460px;
+  line-height:2;
+  font-size:15px;
+
+  max-width:500px;
 }
 
-/* ───────────────── CONTACT ───────────────── */
+/* ================= CONTACT ================= */
 
 .contact{
-  padding:10vw 5vw;
+  padding:120px 5vw;
   text-align:center;
 }
 
-.contact-title{
+.contact h2{
   font-family:var(--serif);
-
-  font-size:clamp(52px,6vw,90px);
-
+  font-size:clamp(50px,6vw,90px);
   font-weight:300;
 
-  margin-bottom:1rem;
+  margin-bottom:20px;
 }
 
-.contact-sub{
-  max-width:540px;
+.contact p{
+  max-width:600px;
+  margin:auto;
 
-  margin:auto auto 3rem;
-
-  font-size:14px;
   line-height:2;
-
   color:#6f675f;
+
+  margin-bottom:35px;
 }
 
 .contact-btn{
   display:inline-block;
 
-  background:var(--ink);
-  color:white;
-
   text-decoration:none;
 
-  padding:16px 38px;
+  background:#111;
+  color:white;
+
+  padding:18px 34px;
+
+  border-radius:100px;
 
   font-size:10px;
   letter-spacing:.25em;
   text-transform:uppercase;
 }
 
-/* ───────────────── FOOTER ───────────────── */
+/* ================= FOOTER ================= */
 
 footer{
   border-top:1px solid rgba(0,0,0,.08);
 
-  padding:2rem 5vw;
+  padding:30px 5vw;
 
   display:flex;
   justify-content:space-between;
-  align-items:center;
-
+  gap:20px;
   flex-wrap:wrap;
-  gap:1rem;
 }
 
 .footer-brand{
   font-family:var(--serif);
-  font-size:15px;
+  font-size:16px;
 }
 
 .footer-copy{
   font-size:10px;
-  letter-spacing:.18em;
+  letter-spacing:.2em;
   text-transform:uppercase;
 
-  color:#8c857c;
+  color:#8d847b;
 }
 
-/* ───────────────── ANIMATION ───────────────── */
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* ───────────────── MOBILE ───────────────── */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
   nav{
-    padding:0 1.5rem;
+    padding:16px 20px;
   }
 
-  .nav-center{
+  .nav-links{
     display:none;
   }
 
-  .hero-content{
-    padding:
-    0
-    1.5rem
-    4rem
-    1.5rem;
+  .nav-btn{
+    padding:10px 16px;
+    font-size:9px;
   }
 
-  .hero-h1{
-    font-size:72px;
+  .hero{
+    min-height:680px;
+  }
+
+  .hero-content{
+    padding:0 24px 60px;
+  }
+
+  .hero h1{
+    font-size:68px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
   .products{
     grid-template-columns:1fr;
-    gap:2rem;
-  }
-
-  .product-image{
-    min-height:420px;
   }
 
   .about-grid{
     grid-template-columns:1fr;
+    gap:40px;
   }
 
-  footer{
+  .section-head{
     flex-direction:column;
     align-items:flex-start;
+    gap:10px;
   }
 
 }
@@ -555,24 +508,24 @@ footer{
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 
 <nav>
 
   <a href="#" class="logo">
-    DJILINE
+    <img src="images/logo.png" alt="Djiline Logo">
   </a>
 
-  <ul class="nav-center">
+  <ul class="nav-links">
     <li><a href="#collection">Collection</a></li>
     <li><a href="#about">À propos</a></li>
     <li><a href="#contact">Commander</a></li>
   </ul>
 
   <a
-  href="https://wa.me/33600000000"
+  href="https://wa.me/33768260699"
   target="_blank"
-  class="nav-cta">
+  class="nav-btn">
   WhatsApp
   </a>
 
@@ -582,38 +535,45 @@ footer{
 
 <section class="hero">
 
-  <div class="hero-visual">
+  <!-- SI TU VEUX VIDEO HERO -->
+  <!-- Remplace images/hero.jpg par ta vidéo -->
 
-    <!-- REMPLACE PAR TA PHOTO -->
-    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1600&auto=format&fit=crop" alt="Djiline">
+  <video autoplay muted loop playsinline>
+    <source src="images/hero.jpg" type="video/mp4">
+  </video>
 
-  </div>
+  <!-- SI TU PRÉFÈRES IMAGE HERO -->
+  <!--
+  <img src="hero.jpg" alt="">
+  -->
+
+  <div class="hero-overlay"></div>
 
   <div class="hero-content">
 
-    <p class="hero-tag">
+    <div class="hero-tag">
       Modest Fashion · France
-    </p>
+    </div>
 
-    <h1 class="hero-h1">
+    <h1>
       L'élégance
       <br>
       <em>réinventée</em>
     </h1>
 
-    <p class="hero-body">
-      Des silhouettes modestes pensées avec intention.
-      Minimalisme contemporain, coupes fluides et présence silencieuse.
+    <p>
+      Des silhouettes modestes inspirées du luxe contemporain.
+      Fluidité, minimalisme et élégance intemporelle.
     </p>
 
-    <div class="hero-actions">
+    <div class="hero-buttons">
 
-      <a href="#collection" class="btn-ink">
+      <a href="#collection" class="btn-light">
         Découvrir
       </a>
 
-      <a href="#about" class="btn-ghost">
-        Notre histoire
+      <a href="#about" class="btn-transparent">
+        Notre histoire →
       </a>
 
     </div>
@@ -626,15 +586,15 @@ footer{
 
 <section class="intro">
 
-  <h2 class="intro-quote">
+  <h2>
     “La modestie n'efface pas la présence.
     Elle lui donne du silence.”
   </h2>
 
-  <p class="intro-sub">
+  <p>
     Djiline propose une vision moderne du vêtement modeste :
-    des pièces sobres, élégantes et intemporelles,
-    inspirées des maisons de mode contemporaines.
+    des pièces sobres, élégantes et intemporelles inspirées
+    des maisons de luxe contemporaines.
   </p>
 
 </section>
@@ -650,119 +610,50 @@ footer{
     </h2>
 
     <span class="section-count">
-      06 modèles
+      Nouvelle capsule
     </span>
 
   </div>
 
   <div class="products">
 
-    <!-- PRODUCT -->
+    <!-- PRODUIT 1 -->
 
-    <a href="#" class="product-card">
+    <a
+    href="https://wa.me/33768260699?text=Bonjour%20je%20souhaite%20commander%20le%20modèle%20Parka%20Bleu"
+    target="_blank"
+    class="product">
 
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="product-media">
+
+        <!-- VIDEO PRODUIT -->
+        <!-- Tu peux remplacer par video -->
+
+        <video autoplay muted loop playsinline>
+          <source src="images/parkableu.jpg" type="video/mp4">
+        </video>
+
+        <!-- OU IMAGE -->
+        <!--
+        <img src="parkableu.jpg" alt="">
+        -->
+
       </div>
 
       <div class="product-info">
 
         <div>
           <h3 class="product-name">
-            Kimono Noir
+            Parka Bleu
           </h3>
 
           <p class="product-desc">
-            Coupe fluide · tissu premium · modèle minimal
+            Coupe oversize · silhouette minimaliste · premium
           </p>
         </div>
 
         <span class="product-price">
-          Sur commande
-        </span>
-
-      </div>
-
-    </a>
-
-    <!-- PRODUCT -->
-
-    <a href="#" class="product-card">
-
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop" alt="">
-      </div>
-
-      <div class="product-info">
-
-        <div>
-          <h3 class="product-name">
-            Kimono Sable
-          </h3>
-
-          <p class="product-desc">
-            Tissu léger · coupe ample · silhouette minimaliste
-          </p>
-        </div>
-
-        <span class="product-price">
-          Sur commande
-        </span>
-
-      </div>
-
-    </a>
-
-    <!-- PRODUCT -->
-
-    <a href="#" class="product-card">
-
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="">
-      </div>
-
-      <div class="product-info">
-
-        <div>
-          <h3 class="product-name">
-            Kimono Nuit
-          </h3>
-
-          <p class="product-desc">
-            Broderies délicates · finition signature
-          </p>
-        </div>
-
-        <span class="product-price">
-          Sur commande
-        </span>
-
-      </div>
-
-    </a>
-
-    <!-- PRODUCT -->
-
-    <a href="#" class="product-card">
-
-      <div class="product-image">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop" alt="">
-      </div>
-
-      <div class="product-info">
-
-        <div>
-          <h3 class="product-name">
-            Kimono Ivoire
-          </h3>
-
-          <p class="product-desc">
-            Tissu satiné · élégance minimaliste
-          </p>
-        </div>
-
-        <span class="product-price">
-          Sur commande
+          Commander
         </span>
 
       </div>
@@ -780,16 +671,14 @@ footer{
   <div class="about-grid">
 
     <h2 class="about-title">
-      Portée avec
-      intention
+      Portée avec intention
     </h2>
 
     <p class="about-text">
       Djiline est née d'une volonté simple :
-      proposer des vêtements modestes contemporains,
-      élégants et durables.
-      Chaque pièce est pensée comme une silhouette,
-      entre discrétion, féminité et modernité.
+      proposer une mode élégante, minimaliste et intemporelle.
+      Chaque pièce est pensée comme une silhouette entre
+      discrétion, féminité et modernité.
     </p>
 
   </div>
@@ -800,18 +689,18 @@ footer{
 
 <section class="contact" id="contact">
 
-  <h2 class="contact-title">
+  <h2>
     Commander
   </h2>
 
-  <p class="contact-sub">
+  <p>
     Contactez-nous directement sur WhatsApp
-    pour découvrir les modèles disponibles
-    et recevoir les prochaines collections.
+    pour commander votre modèle
+    et découvrir les prochaines collections.
   </p>
 
   <a
-  href="https://wa.me/33600000000"
+  href="https://wa.me/33768260699"
   target="_blank"
   class="contact-btn">
 
