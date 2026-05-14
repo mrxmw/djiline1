@@ -351,4 +351,398 @@ nav {
 }
 
 /* Masonry-ish product grid */
-.products
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: var(--warm-0);
+  border: 0.5px solid var(--warm-2);
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--warm-4);
+}
+
+.product-image {
+  aspect-ratio: 3/4;
+  background: var(--warm-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-name {
+  font-family: var(--serif);
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.product-desc {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--warm-4);
+  margin-bottom: 1rem;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-5);
+}
+
+.product-link {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.product-link:hover {
+  opacity: 0.6;
+}
+
+/* ─── ABOUT ─── */
+.about {
+  padding: 10vw 5vw;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-title {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 0.95;
+  font-weight: 300;
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(247,245,241,0.7);
+  max-width: 420px;
+}
+
+/* ─── CONTACT ─── */
+.contact {
+  padding: 10vw 5vw;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.contact-sub {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--warm-4);
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 16px 34px;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 2rem 5vw;
+  border-top: 0.5px solid var(--warm-2);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--warm-4);
+}
+
+.footer-copy {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-3);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 4rem 1.5rem;
+  }
+
+  .nav-center {
+    display: none;
+  }
+
+  .manifesto-inner,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">DJILINE <sub>modest fashion</sub></a>
+
+  <ul class="nav-center">
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#contact">Commander</a></li>
+  </ul>
+
+  <a class="nav-cta" href="https://wa.me/33600000000" target="_blank">
+    WhatsApp
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-visual">
+    <div class="hero-placeholder">
+
+      <svg viewBox="0 0 100 160" fill="none">
+        <ellipse cx="50" cy="18" rx="14" ry="14" stroke="#8a8277"/>
+        <path d="M36 32 Q18 45 8 90 L4 158 L50 150 L96 158 L92 90 Q82 45 64 32 Q58 28 50 28 Q42 28 36 32Z"
+              stroke="#8a8277"/>
+      </svg>
+
+      <p class="photo-hint">Campagne à venir</p>
+    </div>
+
+    <div class="hero-stripe"></div>
+  </div>
+
+  <div class="hero-content">
+
+    <p class="hero-tag">Lyon · France</p>
+
+    <h1 class="hero-h1">
+      L'élégance
+      <em>réinventée</em>
+    </h1>
+
+    <p class="hero-body">
+      Une vision contemporaine du vêtement modeste.
+      Des pièces pensées pour durer, portées avec intention.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#collection" class="btn-ink">Découvrir</a>
+      <a href="#about" class="btn-ghost">Notre histoire</a>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+
+  <div class="manifesto-inner">
+
+    <div class="manifesto-label">
+      Manifesto
+    </div>
+
+    <div class="manifesto-quote">
+      “La modestie n'efface pas la présence.
+      Elle lui donne du <strong>silence</strong>.”
+    </div>
+
+  </div>
+
+</section>
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+
+  <div class="section-header">
+    <h2 class="section-title">Collection</h2>
+    <span class="section-count">06 modèles</span>
+  </div>
+
+  <div class="products">
+
+    <article class="product-card">
+      <div class="product-image"></div>
+
+      <div class="product-info">
+        <h3 class="product-name">Kimono Noir</h3>
+        <p class="product-desc">
+          Coupe fluide · tissu premium · modèle minimal
+        </p>
+
+        <div class="product-footer">
+          <span class="product-price">Sur commande</span>
+          <a class="product-link" href="#">Voir</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <div class="product-image"></div>
+
+      <div class="product-info">
+        <h3 class="product-name">Kimono Sable</h3>
+        <p class="product-desc">
+          Tissu léger · finition matte · coupe ample
+        </p>
+
+        <div class="product-footer">
+          <span class="product-price">Sur commande</span>
+          <a class="product-link" href="#">Voir</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <div class="product-image"></div>
+
+      <div class="product-info">
+        <h3 class="product-name">Kimono Nuit</h3>
+        <p class="product-desc">
+          Détails brodés · édition signature
+        </p>
+
+        <div class="product-footer">
+          <span class="product-price">Sur commande</span>
+          <a class="product-link" href="#">Voir</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+  <div class="about-grid">
+
+    <h2 class="about-title">
+      Portée avec intention
+    </h2>
+
+    <p class="about-text">
+      Djiline imagine des vêtements modestes contemporains,
+      entre héritage et minimalisme moderne.
+      Chaque pièce est pensée pour accompagner le quotidien
+      avec élégance et discrétion.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <h2 class="contact-title">Commander</h2>
+
+  <p class="contact-sub">
+    Contactez-nous directement sur WhatsApp
+    pour découvrir les modèles disponibles.
+  </p>
+
+  <a class="contact-btn"
+     href="https://wa.me/33600000000"
+     target="_blank">
+     WhatsApp
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-brand">
+    Djiline — Modest Fashion
+  </div>
+
+  <div class="footer-copy">
+    © 2026 · France
+  </div>
+
+</footer>
+
+</body>
+</html>
