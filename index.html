@@ -6,6 +6,7 @@
 
 <title>Djiline — Modest Fashion</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -19,107 +20,222 @@
 :root{
   --ink:#0d0d0d;
   --paper:#f6f3ee;
+  --soft:#d8d0c4;
+
   --serif:'Cormorant Garamond', serif;
   --sans:'Jost', sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
   font-family:var(--sans);
   background:var(--paper);
   color:var(--ink);
+  overflow-x:hidden;
 }
 
-/* NAV */
+/* ================= NAVBAR ================= */
 
 nav{
   position:fixed;
   top:0;
+  left:0;
   width:100%;
   z-index:999;
 
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 
-  padding:16px 5vw;
+  padding:18px 5vw;
 
-  background:rgba(246,243,238,.85);
-  backdrop-filter:blur(12px);
+  background:rgba(246,243,238,.75);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(0,0,0,.05);
 }
 
 .logo img{
   height:42px;
+  width:auto;
+  object-fit:contain;
 }
 
-/* HERO */
+.nav-links{
+  display:flex;
+  gap:40px;
+  list-style:none;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#4d4740;
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+
+.nav-btn{
+  text-decoration:none;
+  background:#111;
+  color:white;
+  padding:12px 22px;
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  border-radius:100px;
+}
+
+/* ================= HERO ================= */
 
 .hero{
-  height:100vh;
   position:relative;
+  height:100vh;
+  min-height:760px;
+  overflow:hidden;
 }
 
 .hero img{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.hero::after{
-  content:'';
+.hero-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to right, rgba(0,0,0,.65), rgba(0,0,0,.15));
+  background:linear-gradient(to right, rgba(0,0,0,.60), rgba(0,0,0,.15));
 }
 
 .hero-content{
-  position:absolute;
-  bottom:10%;
-  left:5vw;
-  color:white;
-  max-width:600px;
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:0 7vw 8vh;
+  max-width:700px;
+}
+
+.hero-tag{
+  color:rgba(255,255,255,.75);
+  text-transform:uppercase;
+  letter-spacing:.35em;
+  font-size:10px;
+  margin-bottom:22px;
 }
 
 .hero h1{
   font-family:var(--serif);
-  font-size:clamp(50px,8vw,120px);
+  font-size:clamp(60px,9vw,140px);
+  line-height:.9;
   font-weight:300;
-  line-height:1;
+  color:white;
+  margin-bottom:24px;
 }
 
-/* COLLECTION */
+.hero h1 em{
+  font-style:italic;
+  color:rgba(255,255,255,.72);
+}
+
+.hero p{
+  color:rgba(255,255,255,.8);
+  line-height:2;
+  font-size:14px;
+  max-width:420px;
+  margin-bottom:34px;
+}
+
+/* ================= COLLECTION ================= */
 
 .collection{
-  padding:100px 5vw;
+  padding:0 5vw 120px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:50px;
+}
+
+.section-title{
+  font-family:var(--serif);
+  font-size:48px;
+  font-weight:300;
 }
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns:repeat(2,1fr);
   gap:30px;
 }
 
-.card img{
-  width:100%;
-  height:420px;
-  object-fit:cover;
-  border-radius:6px;
+.product{
+  text-decoration:none;
+  color:inherit;
 }
 
-/* CONTACT */
+.product-media{
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:#e9e2d8;
+}
+
+.product-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .7s ease;
+}
+
+.product:hover img{
+  transform:scale(1.04);
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+  background:#0d0d0d;
+  color:white;
+  padding:120px 7vw;
+}
+
+/* ================= CONTACT ================= */
 
 .contact{
-  padding:100px 5vw;
+  padding:120px 5vw;
   text-align:center;
 }
 
-.contact a{
+.contact-btn{
   display:inline-block;
-  margin-top:20px;
   background:#111;
   color:white;
-  padding:14px 28px;
-  border-radius:999px;
+  padding:18px 34px;
+  border-radius:100px;
   text-decoration:none;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  border-top:1px solid rgba(0,0,0,.08);
+  padding:30px 5vw;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+  .products{grid-template-columns:1fr;}
 }
 
 </style>
@@ -130,11 +246,17 @@ nav{
 <!-- NAV -->
 <nav>
 
-  <div class="logo">
+  <a href="#" class="logo">
     <img src="images/logo.png.jpg" alt="logo">
-  </div>
+  </a>
 
-  <a class="nav-btn" href="https://wa.me/33768260699" target="_blank">
+  <ul class="nav-links">
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#contact">Commander</a></li>
+  </ul>
+
+  <a href="https://wa.me/33768260699" class="nav-btn" target="_blank">
     WhatsApp
   </a>
 
@@ -145,24 +267,44 @@ nav{
 
   <img src="images/hero.jpg.jpeg" alt="hero">
 
+  <div class="hero-overlay"></div>
+
   <div class="hero-content">
-    <h1>Djiline</h1>
-    <p>Mode modeste contemporaine — élégance minimaliste.</p>
+
+    <div class="hero-tag">Modest Fashion · France</div>
+
+    <h1>
+      L'élégance<br><em>réinventée</em>
+    </h1>
+
+    <p>
+      Des silhouettes modestes inspirées du luxe contemporain.
+    </p>
+
   </div>
 
 </section>
 
 <!-- COLLECTION -->
-<section class="collection">
+<section class="collection" id="collection">
+
+  <div class="section-head">
+    <h2 class="section-title">Collection</h2>
+  </div>
 
   <div class="products">
 
-    <a class="card" href="https://wa.me/33768260699?text=Commande%20Parka%20Bleu">
+    <a class="product"
+       href="https://wa.me/33768260699?text=Bonjour%20je%20veux%20commander%20le%20Parka%20Bleu">
 
-      <img src="images/parkableu.jpg.jpeg" alt="Parka Bleu">
+      <div class="product-media">
+        <img src="images/parkableu.jpg.jpeg" alt="Parka Bleu">
+      </div>
 
-      <h3>Parka Bleu</h3>
-      <p>Coupe oversize</p>
+      <div>
+        <h3>Parka Bleu</h3>
+        <p>Sur commande</p>
+      </div>
 
     </a>
 
@@ -170,16 +312,29 @@ nav{
 
 </section>
 
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2>Portée avec intention</h2>
+</section>
+
 <!-- CONTACT -->
-<section class="contact">
+<section class="contact" id="contact">
 
   <h2>Commander</h2>
 
-  <a href="https://wa.me/33768260699" target="_blank">
+  <a class="contact-btn"
+     href="https://wa.me/33768260699"
+     target="_blank">
     WhatsApp
   </a>
 
 </section>
+
+<!-- FOOTER -->
+<footer>
+  <div>Djiline</div>
+  <div>© 2026</div>
+</footer>
 
 </body>
 </html>
