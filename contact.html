@@ -8,20 +8,57 @@
 <style>
 
 body{
+  margin:0;
+  padding:60px 20px;
   font-family:Arial;
-  padding:60px;
-}
-
-a{
+  background:white;
   color:black;
 }
 
-.btn{
-  display:inline-block;
-  margin-top:20px;
+.container{
+  max-width:700px;
+  margin:auto;
+}
+
+h1{
+  font-size:55px;
+  margin-bottom:20px;
+}
+
+p{
+  color:#666;
+  line-height:1.8;
+  margin-bottom:40px;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+input,
+textarea{
+  padding:16px;
+  border:1px solid #ddd;
+  font-size:14px;
+  width:100%;
+}
+
+button{
   background:black;
   color:white;
-  padding:14px 24px;
+  border:none;
+  padding:16px;
+  cursor:pointer;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+}
+
+.back{
+  display:inline-block;
+  margin-bottom:40px;
+  color:black;
   text-decoration:none;
 }
 
@@ -30,23 +67,36 @@ a{
 
 <body>
 
+<div class="container">
+
+<a href="index.html" class="back">
+← Retour accueil
+</a>
+
 <h1>
-Customer Service
+Contact
 </h1>
 
 <p>
-Pour toute commande ou question,
-contactez-nous directement sur WhatsApp.
+Une question, une collaboration ou une demande ?
+Contactez-nous directement par mail.
 </p>
 
-<a
-href="https://wa.me/33768260699"
-target="_blank"
-class="btn">
+<form action="mailto:contact@djiline.fr" method="post" enctype="text/plain">
 
-Contacter sur WhatsApp
+<input type="text" placeholder="Votre nom" required>
 
-</a>
+<input type="email" placeholder="Votre email" required>
+
+<textarea rows="6" placeholder="Votre message"></textarea>
+
+<button type="submit">
+Envoyer
+</button>
+
+</form>
+
+</div>
 
 </body>
 </html>
