@@ -18,10 +18,11 @@
 }
 
 :root{
-  --black:#0d0d0d;
-  --white:#faf9f7;
-  --light:#f2eee8;
+  --black:#0e0e0e;
+  --white:#ffffff;
+  --cream:#faf9f7;
   --grey:#6b6760;
+  --line:#e7e2da;
 
   --serif:'Cormorant Garamond', serif;
   --sans:'Jost', sans-serif;
@@ -51,34 +52,29 @@ nav{
   justify-content:space-between;
   align-items:center;
 
-  padding:18px 4vw;
+  padding:18px 5vw;
 
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(10px);
-
-  border-bottom:1px solid rgba(0,0,0,.05);
+  background:white;
+  border-bottom:1px solid rgba(0,0,0,.06);
 }
 
 .logo img{
-  height:44px;
+  height:42px;
   object-fit:contain;
 }
 
 .nav-links{
   display:flex;
+  gap:40px;
   list-style:none;
-  gap:38px;
 }
 
 .nav-links a{
   text-decoration:none;
-  color:#5f5952;
-
+  color:#555;
   font-size:11px;
-  letter-spacing:.22em;
+  letter-spacing:.2em;
   text-transform:uppercase;
-
-  transition:.3s;
 }
 
 .nav-links a:hover{
@@ -87,16 +83,14 @@ nav{
 
 .nav-btn{
   text-decoration:none;
-
   background:black;
   color:white;
 
-  padding:12px 22px;
-
-  border-radius:100px;
+  padding:12px 24px;
+  border-radius:2px;
 
   font-size:10px;
-  letter-spacing:.22em;
+  letter-spacing:.2em;
   text-transform:uppercase;
 
   transition:.3s;
@@ -120,7 +114,6 @@ nav{
 
   width:100%;
   height:100%;
-
   object-fit:cover;
 }
 
@@ -128,11 +121,10 @@ nav{
   position:absolute;
   inset:0;
 
-  background:
-  linear-gradient(
-    to right,
-    rgba(0,0,0,.58),
-    rgba(0,0,0,.15)
+  background:linear-gradient(
+  to right,
+  rgba(0,0,0,.55),
+  rgba(0,0,0,.15)
   );
 }
 
@@ -152,41 +144,36 @@ nav{
 }
 
 .hero-tag{
-  color:rgba(255,255,255,.7);
-
-  text-transform:uppercase;
-  letter-spacing:.35em;
+  color:rgba(255,255,255,.75);
 
   font-size:10px;
+  letter-spacing:.35em;
+  text-transform:uppercase;
 
   margin-bottom:24px;
 }
 
 .hero h1{
   font-family:var(--serif);
-  font-size:clamp(62px,9vw,135px);
+  font-size:clamp(65px,9vw,140px);
   line-height:.9;
   font-weight:300;
-
   color:white;
 
-  margin-bottom:26px;
+  margin-bottom:25px;
 }
 
 .hero h1 em{
   font-style:italic;
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.75);
 }
 
 .hero p{
-  color:rgba(255,255,255,.82);
-
+  color:rgba(255,255,255,.85);
   line-height:2;
+  max-width:420px;
+  margin-bottom:35px;
   font-size:14px;
-
-  max-width:430px;
-
-  margin-bottom:34px;
 }
 
 .hero-buttons{
@@ -195,7 +182,7 @@ nav{
   flex-wrap:wrap;
 }
 
-.btn-light{
+.btn-main{
   background:white;
   color:black;
 
@@ -203,63 +190,67 @@ nav{
 
   padding:15px 28px;
 
-  border-radius:100px;
+  border-radius:2px;
 
   font-size:10px;
-  letter-spacing:.22em;
+  letter-spacing:.25em;
   text-transform:uppercase;
 }
 
-.btn-transparent{
+.btn-outline{
+  border:1px solid rgba(255,255,255,.6);
   color:white;
+
   text-decoration:none;
 
+  padding:15px 28px;
+
+  border-radius:2px;
+
   font-size:10px;
-  letter-spacing:.22em;
+  letter-spacing:.25em;
   text-transform:uppercase;
 }
 
 /* INTRO */
 
 .intro{
-  padding:110px 7vw;
+  padding:120px 7vw;
   text-align:center;
 }
 
 .intro h2{
   font-family:var(--serif);
-  font-size:clamp(36px,5vw,68px);
+  font-size:clamp(35px,5vw,65px);
   font-weight:300;
-  line-height:1.15;
+  line-height:1.2;
 
-  max-width:850px;
+  max-width:900px;
   margin:auto;
 
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 .intro p{
-  max-width:620px;
+  max-width:650px;
   margin:auto;
 
-  color:#6f675f;
-
   line-height:2;
-  font-size:15px;
+  color:var(--grey);
 }
 
 /* COLLECTION */
 
 .collection{
-  padding:0 4vw 120px;
+  padding:0 5vw 120px;
 }
 
 .section-head{
   display:flex;
   justify-content:space-between;
-  align-items:flex-end;
+  align-items:end;
 
-  margin-bottom:40px;
+  margin-bottom:50px;
 }
 
 .section-title{
@@ -268,29 +259,43 @@ nav{
   font-weight:300;
 }
 
-.section-count{
+.collection-tabs{
+  display:flex;
+  gap:12px;
+}
+
+.tab-btn{
+  border:1px solid black;
+  background:white;
+  padding:10px 18px;
+
+  cursor:pointer;
+
   font-size:10px;
-  letter-spacing:.28em;
+  letter-spacing:.2em;
   text-transform:uppercase;
-  color:#857c73;
+}
+
+.tab-btn.active{
+  background:black;
+  color:white;
 }
 
 .products-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:24px;
+  gap:28px;
 }
 
 .product-card{
   background:white;
-  overflow:hidden;
 }
 
 .product-image{
   position:relative;
-  aspect-ratio:4/5;
   overflow:hidden;
-  background:#ece7df;
+  aspect-ratio:4/5;
+  background:#f3f3f3;
 }
 
 .product-image img{
@@ -298,7 +303,7 @@ nav{
   height:100%;
   object-fit:cover;
 
-  transition:transform .7s ease;
+  transition:transform .6s ease;
 }
 
 .product-card:hover img{
@@ -306,54 +311,47 @@ nav{
 }
 
 .product-info{
-  padding:18px 8px 8px;
+  padding:18px 4px;
 }
 
 .product-name{
   font-family:var(--serif);
-  font-size:30px;
-  font-weight:300;
-
+  font-size:28px;
   margin-bottom:8px;
 }
 
 .product-desc{
+  color:var(--grey);
   font-size:13px;
-  line-height:1.8;
-  color:#6f675f;
+  line-height:1.7;
 
-  margin-bottom:16px;
+  margin-bottom:14px;
 }
 
-.product-footer{
+.product-bottom{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
 .product-price{
-  font-size:10px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
+  font-size:14px;
+  font-weight:500;
 }
 
-.product-wa{
+.product-btn{
   text-decoration:none;
   color:black;
 
   font-size:10px;
-  letter-spacing:.18em;
+  letter-spacing:.2em;
   text-transform:uppercase;
-
-  border-bottom:1px solid rgba(0,0,0,.2);
-
-  padding-bottom:2px;
 }
 
 /* ABOUT */
 
 .about{
-  background:#0d0d0d;
+  background:black;
   color:white;
 
   padding:120px 7vw;
@@ -363,50 +361,43 @@ nav{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:80px;
-
-  max-width:1200px;
-  margin:auto;
 }
 
 .about-title{
   font-family:var(--serif);
-  font-size:clamp(48px,6vw,95px);
-  line-height:.95;
+  font-size:clamp(50px,6vw,90px);
+  line-height:.9;
   font-weight:300;
 }
 
 .about-text{
   color:rgba(255,255,255,.7);
-
   line-height:2;
-  font-size:15px;
-
-  max-width:500px;
 }
 
 /* CONTACT */
 
 .contact{
-  padding:120px 5vw;
+  padding:120px 7vw;
   text-align:center;
 }
 
 .contact h2{
   font-family:var(--serif);
-  font-size:clamp(50px,6vw,90px);
+  font-size:clamp(45px,6vw,80px);
   font-weight:300;
 
   margin-bottom:20px;
 }
 
 .contact p{
-  max-width:620px;
+  max-width:600px;
   margin:auto;
 
+  color:var(--grey);
   line-height:2;
-  color:#6f675f;
 
-  margin-bottom:34px;
+  margin-bottom:35px;
 }
 
 .contact-btn{
@@ -417,9 +408,9 @@ nav{
 
   text-decoration:none;
 
-  padding:18px 34px;
+  padding:16px 32px;
 
-  border-radius:100px;
+  border-radius:2px;
 
   font-size:10px;
   letter-spacing:.25em;
@@ -431,36 +422,81 @@ nav{
 footer{
   border-top:1px solid rgba(0,0,0,.08);
 
-  padding:30px 5vw;
+  padding:40px 5vw;
 
   display:flex;
   justify-content:space-between;
+  align-items:center;
   flex-wrap:wrap;
-  gap:20px;
+  gap:25px;
+}
+
+.footer-left{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 
 .footer-brand{
   font-family:var(--serif);
-  font-size:16px;
+  font-size:18px;
 }
 
 .footer-copy{
   font-size:10px;
-  letter-spacing:.2em;
+  letter-spacing:.15em;
   text-transform:uppercase;
-  color:#8d847b;
+  color:#777;
 }
 
-/* MOBILE */
+.footer-links{
+  display:flex;
+  gap:28px;
+  align-items:center;
+  flex-wrap:wrap;
+}
 
-@media(max-width:900px){
+.footer-links a{
+  text-decoration:none;
+  color:#666;
 
-  nav{
-    padding:16px 20px;
-  }
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.footer-links a:hover{
+  color:black;
+}
+
+.instagram-icon{
+  width:20px;
+  height:20px;
+  fill:black;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
 
   .nav-links{
     display:none;
+  }
+
+  .products-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:700px){
+
+  nav{
+    padding:16px 20px;
   }
 
   .hero-content{
@@ -468,7 +504,11 @@ footer{
   }
 
   .hero h1{
-    font-size:68px;
+    font-size:70px;
+  }
+
+  .products-grid{
+    grid-template-columns:1fr;
   }
 
   .hero-buttons{
@@ -476,19 +516,15 @@ footer{
     align-items:flex-start;
   }
 
-  .products-grid{
-    grid-template-columns:1fr;
-  }
-
-  .about-grid{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-
   .section-head{
     flex-direction:column;
     align-items:flex-start;
-    gap:10px;
+    gap:20px;
+  }
+
+  footer{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
 }
@@ -503,20 +539,17 @@ footer{
 <nav>
 
   <a href="#" class="logo">
-    <img src="images/logo.png.jpg" alt="Djiline Logo">
+    <img src="images/logo.png.jpg" alt="">
   </a>
 
   <ul class="nav-links">
     <li><a href="#collection">Collection</a></li>
     <li><a href="#about">À propos</a></li>
-    <li><a href="#contact">Commander</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 
-  <a
-  href="https://wa.me/33768260699"
-  target="_blank"
-  class="nav-btn">
-  WhatsApp
+  <a href="https://wa.me/33768260699" target="_blank" class="nav-btn">
+    Commander
   </a>
 
 </nav>
@@ -525,7 +558,7 @@ footer{
 
 <section class="hero">
 
-  <img src="images/hero.jpg.jpeg" alt="Djiline Hero">
+  <img src="images/hero.jpg.jpeg" alt="">
 
   <div class="hero-overlay"></div>
 
@@ -548,12 +581,12 @@ footer{
 
     <div class="hero-buttons">
 
-      <a href="#collection" class="btn-light">
+      <a href="#collection" class="btn-main">
         Découvrir
       </a>
 
-      <a href="#contact" class="btn-transparent">
-        Commander →
+      <a href="https://wa.me/33768260699" target="_blank" class="btn-outline">
+        Commander
       </a>
 
     </div>
@@ -573,8 +606,7 @@ footer{
 
   <p>
     Djiline propose une vision moderne du vêtement modeste :
-    des pièces sobres, élégantes et intemporelles inspirées
-    des maisons de luxe contemporaines.
+    des pièces sobres, élégantes et intemporelles.
   </p>
 
 </section>
@@ -589,20 +621,21 @@ footer{
       Collection
     </h2>
 
-    <span class="section-count">
-      Nouvelle capsule
-    </span>
+    <div class="collection-tabs">
+      <button class="tab-btn active">Kimono</button>
+      <button class="tab-btn">Abaya</button>
+    </div>
 
   </div>
 
   <div class="products-grid">
 
-    <!-- PRODUIT 1 -->
+    <!-- PRODUIT -->
 
     <div class="product-card">
 
       <div class="product-image">
-        <img src="images/parkableu.jpg.jpeg" alt="Parka Bleu">
+        <img src="images/parkableu.jpg.jpeg" alt="">
       </div>
 
       <div class="product-info">
@@ -612,19 +645,19 @@ footer{
         </h3>
 
         <p class="product-desc">
-          Coupe oversize · silhouette minimaliste · premium
+          Coupe oversize · minimaliste · premium
         </p>
 
-        <div class="product-footer">
+        <div class="product-bottom">
 
           <span class="product-price">
-            Sur commande
+            89€
           </span>
 
           <a
           href="https://wa.me/33768260699?text=Bonjour%20je%20souhaite%20commander%20la%20Parka%20Bleu"
           target="_blank"
-          class="product-wa">
+          class="product-btn">
           Commander →
           </a>
 
@@ -634,34 +667,34 @@ footer{
 
     </div>
 
-    <!-- PRODUIT 2 -->
+    <!-- DUPLIQUE LES PRODUITS -->
 
     <div class="product-card">
 
       <div class="product-image">
-        <img src="images/parkableu.jpg.jpeg" alt="Parka Bleu">
+        <img src="images/parkableu.jpg.jpeg" alt="">
       </div>
 
       <div class="product-info">
 
         <h3 class="product-name">
-          Kimono Nuit
+          Kimono Noir
         </h3>
 
         <p class="product-desc">
-          Kimono fluide · coupe premium · inspiration luxe
+          Tissu fluide · élégant · intemporel
         </p>
 
-        <div class="product-footer">
+        <div class="product-bottom">
 
           <span class="product-price">
-            Sur commande
+            95€
           </span>
 
           <a
-          href="https://wa.me/33768260699?text=Bonjour%20je%20souhaite%20commander%20le%20Kimono%20Nuit"
+          href="https://wa.me/33768260699"
           target="_blank"
-          class="product-wa">
+          class="product-btn">
           Commander →
           </a>
 
@@ -671,34 +704,32 @@ footer{
 
     </div>
 
-    <!-- PRODUIT 3 -->
-
     <div class="product-card">
 
       <div class="product-image">
-        <img src="images/parkableu.jpg.jpeg" alt="Parka Bleu">
+        <img src="images/parkableu.jpg.jpeg" alt="">
       </div>
 
       <div class="product-info">
 
         <h3 class="product-name">
-          Kimono Ivoire
+          Abaya Ivoire
         </h3>
 
         <p class="product-desc">
-          Tissu satiné · coupe élégante · design minimaliste
+          Coupe ample · luxe discret
         </p>
 
-        <div class="product-footer">
+        <div class="product-bottom">
 
           <span class="product-price">
-            Sur commande
+            110€
           </span>
 
           <a
-          href="https://wa.me/33768260699?text=Bonjour%20je%20souhaite%20commander%20le%20Kimono%20Ivoire"
+          href="https://wa.me/33768260699"
           target="_blank"
-          class="product-wa">
+          class="product-btn">
           Commander →
           </a>
 
@@ -743,8 +774,7 @@ footer{
 
   <p>
     Contactez-nous directement sur WhatsApp
-    pour commander votre modèle
-    et découvrir les prochaines collections.
+    pour commander votre modèle.
   </p>
 
   <a
@@ -762,12 +792,34 @@ footer{
 
 <footer>
 
-  <div class="footer-brand">
-    Djiline — Modest Fashion
+  <div class="footer-left">
+
+    <div class="footer-brand">
+      Djiline — Modest Fashion
+    </div>
+
+    <div class="footer-copy">
+      © 2026 · France
+    </div>
+
   </div>
 
-  <div class="footer-copy">
-    © 2026 · France
+  <div class="footer-links">
+
+    <a href="#">Legal</a>
+
+    <a href="#">Customer Service</a>
+
+    <a href="#contact">Contact</a>
+
+    <a href="https://instagram.com/djiline" target="_blank">
+
+      <svg class="instagram-icon" viewBox="0 0 24 24">
+        <path d="M7 2C4.2 2 2 4.2 2 7V17C2 19.8 4.2 22 7 22H17C19.8 22 22 19.8 22 17V7C22 4.2 19.8 2 17 2H7ZM18 4C18.6 4 19 4.4 19 5C19 5.6 18.6 6 18 6C17.4 6 17 5.6 17 5C17 4.4 17.4 4 18 4ZM12 7C14.8 7 17 9.2 17 12C17 14.8 14.8 17 12 17C9.2 17 7 14.8 7 12C7 9.2 9.2 7 12 7ZM12 9C10.3 9 9 10.3 9 12C9 13.7 10.3 15 12 15C13.7 15 15 13.7 15 12C15 10.3 13.7 9 12 9Z"/>
+      </svg>
+
+    </a>
+
   </div>
 
 </footer>
