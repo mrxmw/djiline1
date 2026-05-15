@@ -541,6 +541,59 @@ grid-template-columns:1fr 1fr;
 
 @media(max-width:700px){
 
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+display:flex;   /* IMPORTANT: on réactive le menu */
+gap:14px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:10px;
+}
+
+nav{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.nav-btn{
+align-self:flex-end;
+padding:10px 14px;
+font-size:9px;
+}
+
+/* CURSEUR OFF MOBILE */
+.cursor{
+display:none;
+}
+
+html, body, a, button{
+cursor:auto;
+}
+
+/* HERO */
+.hero{
+height:85vh;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+/* PRODUCTS */
+.products{
+grid-template-columns:1fr;
+}
+
+/* FOOTER */
+footer{
+flex-direction:column;
+align-items:flex-start;
+}
+}
+
 html,body{
 cursor:auto;
 }
