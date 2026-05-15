@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimono — Djiline</title>
 
+<style>
+
+body{
+  margin:0;
+  font-family:Arial;
+  background:white;
+  color:black;
+}
+
+header{
+  padding:30px;
+  border-bottom:1px solid #eee;
+}
+
+a{
+  text-decoration:none;
+  color:black;
+}
+
+.products{
+  padding:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.card img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+}
+
+.card h2{
+  font-size:28px;
+}
+
+.price{
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 20px;
+  background:black;
+  color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <a href="index.html">
+    ← Retour accueil
+  </a>
+
+</header>
+
+<section class="products">
+
+  <div class="card">
+
+    <img src="images/parkableu.jpg.jpeg" alt="">
+
+    <h2>Kimono Noir</h2>
+
+    <p>
+      Coupe minimaliste · tissu premium
+    </p>
+
+    <div class="price">
+      95€
+    </div>
+
+    <a
+    href="https://wa.me/33768260699"
+    target="_blank"
+    class="btn">
+    Commander
+    </a>
+
+  </div>
+
+</section>
+
+</body>
+</html>
